@@ -1,0 +1,43 @@
+import Link from "next/link";
+
+const nav = [
+  { href: "/services", label: "Consulting" },
+  { href: "/brands", label: "Our Brands" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+export default function Header() {
+  return (
+    <header className="sticky top-0 z-40 border-b border-line/80 bg-background/90 backdrop-blur">
+      <div className="container-px mx-auto flex h-16 max-w-6xl items-center justify-between">
+        <Link href="/" className="font-display text-xl font-semibold tracking-tight">
+          Pourik
+        </Link>
+        <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/80 md:flex">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="transition-colors hover:text-brand"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          href="/contact"
+          className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark md:inline-block"
+        >
+          Get a free audit
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded-full bg-brand px-3 py-1.5 text-sm font-semibold text-white md:hidden"
+        >
+          Contact
+        </Link>
+      </div>
+    </header>
+  );
+}
