@@ -33,7 +33,7 @@ export default function Home() {
         <div className="container-px mx-auto grid max-w-6xl gap-10 py-20 md:grid-cols-2 md:py-28">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-              Marketplace growth, proven on our own brands
+              People &middot; Ideas &middot; Businesses &middot; Beyond
             </p>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
               We grow marketplace sellers — and we run our own.
@@ -48,7 +48,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+                className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
               >
                 Get a free marketplace audit
               </Link>
@@ -71,7 +71,7 @@ export default function Home() {
               </p>
             </div>
             <div className="rounded-2xl border border-line bg-paper p-6">
-              <div className="font-display text-2xl font-semibold text-brand">
+              <div className="font-display text-2xl font-semibold text-accent">
                 Our Brands
               </div>
               <p className="mt-2 text-sm text-muted">
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="container-px mx-auto max-w-6xl py-20">
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Our Brands
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
@@ -154,7 +154,7 @@ export default function Home() {
               </p>
               <Link
                 href="/brands"
-                className="mt-6 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+                className="mt-6 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
               >
                 Explore our brands
               </Link>
@@ -178,7 +178,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+            className="mt-8 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
           >
             Get a free marketplace audit
           </Link>

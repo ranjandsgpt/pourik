@@ -106,7 +106,7 @@ export default function ServicesPage() {
         </p>
         <Link
           href="/contact"
-          className="mt-6 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+          className="mt-6 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
         >
           Get a free audit
         </Link>

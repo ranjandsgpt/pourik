@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logomark from "./Logomark";
 
 export default function Footer() {
   return (
@@ -6,7 +7,15 @@ export default function Footer() {
       <div className="container-px mx-auto max-w-6xl py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="font-display text-lg font-semibold">Pourik</div>
+            <div className="flex items-center gap-2.5">
+              <Logomark size={28} />
+              <span className="font-display text-lg font-semibold">
+                POURIK
+              </span>
+            </div>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-accent">
+              People &middot; Ideas &middot; Businesses &middot; Beyond
+            </p>
             <p className="mt-3 max-w-xs text-sm text-muted">
               Marketplace growth consulting and a portfolio of Pourik-owned
               brands, built on the same playbook.

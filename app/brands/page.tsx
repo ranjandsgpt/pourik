@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function BrandsPage() {
   return (
     <div className="container-px mx-auto max-w-6xl py-20">
-      <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+      <p className="text-sm font-semibold uppercase tracking-widest text-accent">
         Our Brands
       </p>
       <h1 className="mt-3 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-5xl">
@@ -52,7 +52,7 @@ export default function BrandsPage() {
         </p>
         <Link
           href="/contact"
-          className="mt-6 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+          className="mt-6 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
         >
           Get notified
         </Link>

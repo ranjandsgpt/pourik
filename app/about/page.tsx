@@ -6,6 +6,29 @@ export const metadata: Metadata = {
     "Pourik is a marketplace growth consultancy that also owns and operates its own branded products, so every recommendation is tested before it's sold.",
 };
 
+const pillars = [
+  {
+    letter: "P",
+    title: "People",
+    copy: "Seller and client teams who've run real P&L on real marketplaces, not just campaign dashboards.",
+  },
+  {
+    letter: "I",
+    title: "Ideas",
+    copy: "Strategy tested on our own catalog before it ever becomes a client recommendation.",
+  },
+  {
+    letter: "B",
+    title: "Businesses",
+    copy: "Two sides, one playbook — consulting engagements and Pourik-owned brands, growing together.",
+  },
+  {
+    letter: "+",
+    title: "Beyond",
+    copy: "Amazon and Walmart today, new marketplaces and categories as the playbook proves out.",
+  },
+];
+
 const principles = [
   {
     title: "We operate, not just advise",
@@ -37,6 +60,20 @@ export default function AboutPage() {
         every strategy we recommend has already been paid for out of our own
         pocket before it reaches yours.
       </p>
+
+      <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {pillars.map((p) => (
+          <div key={p.title} className="rounded-2xl border border-line p-6">
+            <div className="font-display text-2xl font-semibold text-brand">
+              {p.letter}
+            </div>
+            <h3 className="mt-2 font-display text-lg font-semibold">
+              {p.title}
+            </h3>
+            <p className="mt-2 text-sm text-muted">{p.copy}</p>
+          </div>
+        ))}
+      </div>
 
       <div className="mt-16 grid gap-6 sm:grid-cols-3">
         {principles.map((p) => (
