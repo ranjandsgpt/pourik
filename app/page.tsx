@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   CtaBand,
   Eyebrow,
@@ -10,6 +11,10 @@ import {
   UpcomingCard,
 } from "@/components/Blocks";
 import NewsletterForm from "@/components/NewsletterForm";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const services = [
   {
@@ -26,7 +31,7 @@ const services = [
   },
   {
     title: "Marketplace Expansion",
-    copy: "Launch plans for new marketplaces and regions, from the US to Southeast Asia, built step by step.",
+    copy: "Launch plans for new marketplaces, regions and categories, built step by step.",
   },
 ];
 
@@ -43,11 +48,11 @@ export default function Home() {
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted">
               Pourik is a marketplace growth partner for brands on Amazon,
-              Walmart, TikTok Shop and Southeast Asia&apos;s leading
-              marketplaces. Our network of senior marketplace, retail media
-              and ad-tech experts, backed by AI-driven tools and insights,
-              helps you put every rupee and dollar of spend where it works
-              hardest.
+              Walmart and TikTok Shop, with Southeast Asia&apos;s leading
+              marketplaces coming soon. Our network of senior marketplace,
+              retail media and ad-tech experts, backed by AI-driven tools and
+              insights, helps you put every rupee, pound and dollar of spend
+              where it works hardest.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <PrimaryButton href="/audit">Get a free marketplace audit</PrimaryButton>
