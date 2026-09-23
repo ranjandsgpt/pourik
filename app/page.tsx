@@ -1,28 +1,33 @@
 import Link from "next/link";
+import {
+  CtaBand,
+  Eyebrow,
+  FaqList,
+  GhostButton,
+  MarketplaceStrip,
+  PrimaryButton,
+  StatsStrip,
+  UpcomingCard,
+} from "@/components/Blocks";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const services = [
   {
     title: "Retail Media & Advertising",
-    copy: "Amazon Ads, Walmart Connect, and retail DSP campaigns built around margin and true ROAS, not just spend.",
+    copy: "Sponsored ads, DSP and marketplace ad programmes run around contribution margin, so spend goes where it earns.",
   },
   {
-    title: "Catalog & Listing Optimization",
-    copy: "SEO-driven titles, A+ content, and image/video strategy that lifts conversion rate, not just traffic.",
+    title: "Catalog & Listing Optimisation",
+    copy: "Search-led titles, rich content, images and video that help shoppers find you and choose you.",
   },
   {
     title: "Inventory & Pricing Strategy",
-    copy: "Demand forecasting, reorder planning, and repricing logic that protect Buy Box and cash flow together.",
+    copy: "Forecasting, reorder planning and pricing logic that protect availability, margin and cash flow together.",
   },
   {
     title: "Marketplace Expansion",
-    copy: "Launch playbooks for new marketplaces and categories, backed by data from brands we already operate.",
+    copy: "Launch plans for new marketplaces and regions, from the US to Southeast Asia, built step by step.",
   },
-];
-
-const stats = [
-  { value: "2", label: "sides of the business — we consult, and we sell" },
-  { value: "1", label: "playbook, tested on our own brands before yours" },
-  { value: "0", label: "theoretical advice — everything is run on live catalogs" },
 ];
 
 export default function Home() {
@@ -32,84 +37,62 @@ export default function Home() {
       <section className="border-b border-line/80">
         <div className="container-px mx-auto grid max-w-6xl gap-10 py-20 md:grid-cols-2 md:py-28">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-              People &middot; Ideas &middot; Businesses &middot; Beyond
-            </p>
+            <Eyebrow>People &middot; Ideas &middot; Businesses &middot; Beyond</Eyebrow>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-              We grow marketplace sellers — and we run our own.
+              Pour into what grows.
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted">
-              Pourik is a marketplace growth partner for Amazon, Walmart, and
-              beyond: advertising, catalog, and inventory strategy. We also
-              build and sell our own branded products on those same
-              channels, so every recommendation we make has already been
-              tested with our own money.
+              Pourik is a marketplace growth partner for brands on Amazon,
+              Walmart, TikTok Shop and Southeast Asia&apos;s leading
+              marketplaces. Our network of senior marketplace, retail media
+              and ad-tech experts, backed by AI-driven tools and insights,
+              helps you put every rupee and dollar of spend where it works
+              hardest.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
-              >
-                Get a free marketplace audit
-              </Link>
-              <Link
-                href="/brands"
-                className="rounded-full border border-line px-6 py-3 text-sm font-semibold transition-colors hover:border-brand hover:text-brand"
-              >
-                See our brands
-              </Link>
+              <PrimaryButton href="/audit">Get a free marketplace audit</PrimaryButton>
+              <GhostButton href="/people">Meet our people</GhostButton>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 self-start md:mt-4">
             <div className="rounded-2xl border border-line bg-paper p-6">
               <div className="font-display text-2xl font-semibold text-brand">
-                Consulting
+                Pour
               </div>
               <p className="mt-2 text-sm text-muted">
-                Full-funnel marketplace growth for brands that sell on
-                Amazon, Walmart, and other retail marketplaces.
+                From the Sanskrit root <em>pūr</em>, to fill. We help you fill
+                the right places with the right spend.
               </p>
             </div>
             <div className="rounded-2xl border border-line bg-paper p-6">
               <div className="font-display text-2xl font-semibold text-accent">
-                Our Brands
+                Ik
               </div>
               <p className="mt-2 text-sm text-muted">
-                A growing portfolio of Pourik-owned products, built with the
-                same playbook we sell.
+                <em>Ikk</em>, one. One team, one playbook, one business at a
+                time.
               </p>
             </div>
             <div className="col-span-2 rounded-2xl border border-dashed border-line p-6 text-sm text-muted">
-              Why both? Most agencies only theorize. We operate live listings
-              ourselves, so our advice is battle-tested before it reaches
-              you.
+              Pourik: experienced people and smart tools, pouring growth into
+              businesses, together as one.{" "}
+              <Link href="/about" className="font-semibold text-brand hover:text-brand-dark">
+                Our story →
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="border-b border-line/80 bg-paper">
-        <div className="container-px mx-auto grid max-w-6xl gap-8 py-12 sm:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="font-display text-4xl font-semibold text-brand">
-                {s.value}
-              </div>
-              <p className="mt-1 text-sm text-muted">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsStrip />
+      <MarketplaceStrip />
 
       {/* Services */}
-      <section id="services" className="container-px mx-auto max-w-6xl py-20">
+      <section className="container-px mx-auto max-w-6xl py-20">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-            Consulting
-          </p>
+          <Eyebrow>Consulting</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
-            Everything a marketplace brand needs to grow, minus the guesswork.
+            Everything a marketplace brand needs to grow, with less guesswork.
           </h2>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -118,71 +101,116 @@ export default function Home() {
               key={s.title}
               className="rounded-2xl border border-line p-6 transition-colors hover:border-brand"
             >
-              <h3 className="font-display text-xl font-semibold">
-                {s.title}
-              </h3>
+              <h3 className="font-display text-xl font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-muted">{s.copy}</p>
             </div>
           ))}
         </div>
         <div className="mt-10">
-          <Link
-            href="/services"
-            className="text-sm font-semibold text-brand hover:text-brand-dark"
-          >
+          <Link href="/services" className="text-sm font-semibold text-brand hover:text-brand-dark">
             See the full consulting offer →
           </Link>
         </div>
       </section>
 
-      {/* Brands teaser */}
+      {/* People */}
       <section className="border-t border-line/80 bg-paper">
+        <div className="container-px mx-auto grid max-w-6xl gap-10 py-20 md:grid-cols-2 md:items-center">
+          <div>
+            <Eyebrow tone="accent">Our people</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+              No faces on the billboard. Decades of combined experience behind the work.
+            </h2>
+            <p className="mt-4 text-muted">
+              Pourik is a community of professionals who have built careers at
+              global marketplaces, big-tech ad platforms, leading retailers
+              and global agency networks. They bring their craft to Pourik out
+              of passion for building, and our AI-driven tools help them move
+              faster.
+            </p>
+            <div className="mt-6">
+              <PrimaryButton href="/people">How our people work</PrimaryButton>
+            </div>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {[
+              ["Marketplace operators", "People who have run catalogs, categories and seller programmes."],
+              ["Retail media specialists", "Ad buyers and strategists who have managed large, multi-market budgets."],
+              ["Ad-tech builders", "Product and engineering minds from programmatic and bid-tech platforms."],
+              ["Brand & agency strategists", "Planners and creatives from global agency networks."],
+            ].map(([t, c]) => (
+              <li key={t} className="rounded-2xl border border-line bg-background p-5">
+                <div className="font-display font-semibold">{t}</div>
+                <p className="mt-1 text-sm text-muted">{c}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Stories */}
+      <section className="container-px mx-auto max-w-6xl py-20">
+        <div className="max-w-2xl">
+          <Eyebrow>Success stories</Eyebrow>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+            Stories from our people, in their own words.
+          </h2>
+          <p className="mt-4 text-muted">
+            Our experts have each shaped growth for many brands across their
+            careers. We are writing those stories up with care, and with the
+            permissions they need.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <UpcomingCard title="Case studies" copy="Individual success stories from our experts, published soon." />
+          <UpcomingCard title="Client testimonials" copy="Words from the brands we work with, shared with their consent." />
+          <UpcomingCard title="Pourik brands" copy="Our own product lines, built on the same playbook." />
+        </div>
+        <div className="mt-8">
+          <Link href="/stories" className="text-sm font-semibold text-brand hover:text-brand-dark">
+            Visit the stories page →
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-line/80">
         <div className="container-px mx-auto max-w-6xl py-20">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-                Our Brands
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
-                We sell products too — on the exact channels we advise on.
-              </h2>
-              <p className="mt-4 text-muted">
-                Pourik owns and operates a portfolio of branded products sold
-                directly on Amazon, Walmart, and our own store. It&apos;s our
-                proving ground: nothing goes into a client strategy until
-                we&apos;ve tried it on our own catalog first.
-              </p>
-              <Link
-                href="/brands"
-                className="mt-6 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
-              >
-                Explore our brands
-              </Link>
-            </div>
-            <div className="rounded-2xl border border-dashed border-line p-8 text-center text-muted">
-              First Pourik-owned product line launching soon.
-            </div>
+          <Eyebrow>Common questions</Eyebrow>
+          <h2 className="mt-3 mb-10 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+            Straight answers.
+          </h2>
+          <FaqList limit={5} />
+          <div className="mt-8">
+            <Link href="/faq" className="text-sm font-semibold text-brand hover:text-brand-dark">
+              All questions →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-px mx-auto max-w-6xl py-20">
-        <div className="rounded-3xl bg-foreground px-8 py-16 text-center text-background">
-          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
-            Ready to see what&apos;s leaking in your marketplace performance?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-background/80">
-            We&apos;ll audit your Amazon or Walmart account — ads, listings, and
-            inventory — and tell you exactly where the growth is sitting.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
-          >
-            Get a free marketplace audit
-          </Link>
+      {/* Newsletter */}
+      <section className="border-t border-line/80 bg-paper">
+        <div className="container-px mx-auto grid max-w-6xl gap-8 py-16 md:grid-cols-2 md:items-center">
+          <div>
+            <Eyebrow>Pourik Notes</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight md:text-3xl">
+              Marketplace insights, occasionally, in your inbox.
+            </h2>
+            <p className="mt-3 text-sm text-muted">
+              Practical notes on ads, listings and marketplace changes. No
+              spam, and you can unsubscribe at any time.
+            </p>
+          </div>
+          <NewsletterForm />
         </div>
+      </section>
+
+      <section className="container-px mx-auto max-w-6xl py-20">
+        <CtaBand
+          title="Ready to see where your marketplace spend is leaking?"
+          copy="We'll review your listings, ads and inventory and send you a short, prioritised list of what to fix first. Free, with no obligation."
+        />
       </section>
     </>
   );

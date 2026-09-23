@@ -51,3 +51,29 @@ body {
     padding-right: 3rem;
   }
 }
+
+/* Long-form legal text */
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+}
+.legal p,
+.legal li {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+.legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.legal a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+.legal strong {
+  color: var(--foreground);
+}

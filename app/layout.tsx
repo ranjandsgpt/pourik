@@ -18,15 +18,16 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Pourik — People. Ideas. Businesses. Beyond.",
   description:
-    "Pourik grows Amazon, Walmart, and marketplace sellers through advertising, listing, and catalog strategy — and builds its own branded products on the same channels, so our advice is proven, not theoretical.",
+    "Pourik is a marketplace growth partner for brands on Amazon, Walmart, TikTok Shop and Southeast Asia marketplaces, powered by senior experts and AI-driven tools and insights.",
   metadataBase: new URL("https://pourik.com"),
   openGraph: {
     title: "Pourik — People. Ideas. Businesses. Beyond.",
     description:
-      "Marketplace growth consulting, plus a portfolio of Pourik-owned brands sold on the same channels we optimize.",
+      "Pour into what grows. Marketplace growth consulting from senior experts, backed by AI-driven tools and insights.",
     url: "https://pourik.com",
     siteName: "Pourik",
     type: "website",
+    locale: "en_IN",
   },
 };
 
