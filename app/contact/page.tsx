@@ -1,7 +1,9 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact — Pourik",
   description:
     "Contact Pourik about marketplace consulting, joining our expert network, or updates on Pourik-owned brands.",
@@ -19,7 +21,7 @@ export default function ContactPage() {
       <p className="mt-6 text-lg text-muted">
         Ask about consulting, join our expert network, or get notified when
         our first product line launches. For a free audit, use the{" "}
-        <a href="/audit" className="font-medium text-brand">audit request form</a>.
+        <Link href="/audit" className="font-medium text-brand">audit request form</Link>.
       </p>
 
       <div className="mt-12">
