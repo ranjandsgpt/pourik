@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand, Eyebrow, GhostButton } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/people" },
   title: "Our People — Pourik",
   description:
     "Pourik is powered by a community of senior marketplace, retail media, ad-tech and agency professionals, supported by AI-driven tools and insights.",
