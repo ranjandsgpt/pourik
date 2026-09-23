@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand, Eyebrow, FaqList } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "FAQ — Pourik",
   description:
     "Answers to common questions about Pourik's marketplace consulting, free audit, marketplaces covered and how we work.",
