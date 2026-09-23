@@ -22,7 +22,7 @@ const pillars = [
   {
     letter: "B",
     title: "Businesses",
-    copy: "Consulting for marketplace brands today, and Pourik-owned brands in the making.",
+    copy: "Solutions for marketplace brands today, and Pourik-owned brands in the making.",
   },
   {
     letter: "+",
