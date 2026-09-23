@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Eyebrow, UpcomingCard } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/brands" },
   title: "Our Brands — Pourik",
   description:
     "Pourik is building its own branded products, to be sold on the same marketplaces we advise on. Get notified at launch.",
