@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/disclaimer" },
   title: "Disclaimer — Pourik",
   description:
     "Important notes on results, trademarks, our experts' affiliations and AI-assisted content.",
