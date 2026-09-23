@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Use — Pourik",
   description: "The terms that apply when you use the Pourik website.",
 };
@@ -13,7 +14,7 @@ export default function TermsPage() {
     <LegalPage title="Terms of Use">
       <p>
         These Terms of Use apply to your use of {site.url} (the
-        &quot;Website&quot;), operated by {site.legalName}, {site.address}{" "}
+        &quot;Website&quot;), operated by {site.legalName}, {site.locations.join(" and ")}{" "}
         (&quot;Pourik&quot;, &quot;we&quot;, &quot;us&quot;). By using the
         Website, you agree to these terms. If you do not agree, please do not
         use the Website.
@@ -93,7 +94,9 @@ export default function TermsPage() {
       <p>
         These terms are governed by the laws of India. Courts at Bengaluru,
         Karnataka will have jurisdiction over any dispute arising from them,
-        subject to any rights you have under consumer protection law.
+        subject to any rights you have under consumer protection law. If you
+        are a consumer in the UK, you may also have rights under UK law that
+        these terms do not affect.
       </p>
 
       <h2>10. Changes and contact</h2>
