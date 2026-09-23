@@ -3,9 +3,10 @@ import AuditForm from "@/components/AuditForm";
 import { Eyebrow, FaqList } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/audit" },
   title: "Free Marketplace Audit — Pourik",
   description:
-    "Request a free, no-obligation audit of your Amazon, Walmart, TikTok Shop or Southeast Asia marketplace presence from Pourik's experts.",
+    "Request a free, no-obligation audit of your Amazon, Walmart or TikTok Shop presence from Pourik's experts.",
 };
 
 const checks = [
