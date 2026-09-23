@@ -3,6 +3,7 @@ import Logomark from "./Logomark";
 
 const nav = [
   { href: "/services", label: "Consulting" },
+  { href: "/people", label: "Our People" },
   { href: "/brands", label: "Our Brands" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -30,16 +31,16 @@ export default function Header() {
           ))}
         </nav>
         <Link
-          href="/contact"
+          href="/audit"
           className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark md:inline-block"
         >
           Get a free audit
         </Link>
         <Link
-          href="/contact"
+          href="/audit"
           className="rounded-full bg-brand px-3 py-1.5 text-sm font-semibold text-ink md:hidden"
         >
-          Contact
+          Free audit
         </Link>
       </div>
     </header>

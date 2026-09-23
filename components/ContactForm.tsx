@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const reasons = [
-  "Free marketplace audit",
   "Consulting inquiry",
+  "Free marketplace audit",
   "Notify me about Pourik brands",
+  "Joining the Pourik expert network",
   "Something else",
 ];
 
@@ -22,7 +24,7 @@ export default function ContactForm() {
 
     const subject = encodeURIComponent(`Pourik inquiry: ${reason}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\n${message}`
+      `Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\n${message}\n\nI agree that Pourik may use these details to respond to my message, as described in the Privacy Policy.`
     );
     window.location.href = `mailto:hello@pourik.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -100,6 +102,14 @@ export default function ContactForm() {
           className="mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand"
         />
       </div>
+      <label className="flex items-start gap-2 text-sm text-muted">
+        <input type="checkbox" required className="mt-1 accent-[var(--brand)]" />
+        <span>
+          I agree that Pourik may use these details to respond to my message,
+          as described in the{" "}
+          <Link href="/privacy" className="text-brand underline">Privacy Policy</Link>.
+        </span>
+      </label>
       <button
         type="submit"
         className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
