@@ -4,7 +4,7 @@ import { CtaBand, Eyebrow } from "@/components/Blocks";
 export const metadata: Metadata = {
   title: "About — Pourik",
   description:
-    "The story behind Pourik: pour, from the Sanskrit root pūr (to fill), and ik, one. A marketplace growth partner built on experienced people and AI-driven insights.",
+    "What Pourik means: Pūr, Sanskrit for to fill completely, and Ik, the first unit of value. Together, the overflow of wealth. A marketplace growth partner built on experienced people and AI-driven insights.",
 };
 
 const pillars = [
@@ -54,36 +54,74 @@ export default function AboutPage() {
     <div className="container-px mx-auto max-w-6xl py-20">
       <Eyebrow>About Pourik</Eyebrow>
       <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-5xl">
-        Pour + Ik. Filling businesses with growth, together as one.
+        What does Pourik mean?
       </h1>
+      <p className="mt-6 max-w-2xl text-lg text-muted">
+        We built our name from two old roots. Put together, they make one idea:
+        the overflow of wealth.
+      </p>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-3xl border border-line bg-paper p-8">
           <div className="font-display text-5xl font-semibold text-brand">Pour</div>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-accent">
+            Sanskrit abundance
+          </p>
           <p className="mt-4 text-muted">
-            Inspired by the Sanskrit root <em>pūr</em> (पूर्), to fill, the same
-            root behind <em>pūrṇa</em>, meaning full or complete. In English, to
-            pour is to let something flow in generously. For us, it is about
-            putting money, effort and ideas into the places that make a
-            business whole.
+            In Sanskrit, <em>pūr</em> (पूर्) or <em>pūra</em> (पूर) does not
+            mean an empty spill. It means to fill completely: fullness,
+            abundance, overflowing. Something that is <em>pūrita</em> has been
+            made full, intensified, spread over. Like the English word pour, it
+            is a steady, heavy stream that fills everything it reaches.
           </p>
         </div>
         <div className="rounded-3xl border border-line bg-paper p-8">
           <div className="font-display text-5xl font-semibold text-accent">Ik</div>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-accent">
+            The unit of value
+          </p>
           <p className="mt-4 text-muted">
-            Inspired by <em>ikk</em> (ਇੱਕ), the Punjabi word for one. One team
-            of experienced people. One shared playbook. One business at a time,
-            given our full attention.
+            In Punjabi and Hindi, <em>ik</em> (ਇੱਕ) means one: the first,
+            foundational unit that every count and every trade begins with. In
+            ancient Mayan, <em>Ik&apos;</em> is wind and breath, the flow that
+            keeps life moving.
+          </p>
+        </div>
+      </div>
+
+      <h2 className="mt-16 font-display text-2xl font-semibold">Pūr + Ik</h2>
+      <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-line p-6">
+          <div className="font-display text-xl font-semibold text-brand">
+            The overflow of wealth
+          </div>
+          <p className="mt-2 text-sm text-muted">
+            A steady stream of value that keeps flowing, the way breath keeps
+            life moving.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-line p-6">
+          <div className="font-display text-xl font-semibold text-brand">
+            To fill the unit
+          </div>
+          <p className="mt-2 text-sm text-muted">
+            Take one unit of value and keep filling it until it overflows. In
+            business terms, that is compounding.
           </p>
         </div>
       </div>
 
       <p className="mt-10 max-w-3xl text-lg text-muted">
-        Put together, Pourik is a simple idea. Good growth is not about spending
-        more. It is about pouring into the right places, with people who have
-        done it many times before. We are a marketplace growth partner that
-        pairs senior human expertise with AI-driven tools and insights, and we
-        are building our own brands on the same playbook.
+        That is what we want growth to look like for the brands we work with:
+        every rupee and dollar poured into the right place, building on what
+        came before. Pourik is a marketplace growth partner that pairs senior
+        human expertise with AI-driven tools and insights, and we are building
+        our own brands on the same playbook.
+      </p>
+      <p className="mt-4 max-w-3xl text-xs text-muted">
+        The meaning of our name describes our ambition. It is not a promise of
+        any financial return. Results always depend on the business, the
+        marketplace and conditions outside anyone&apos;s control.
       </p>
 
       <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
