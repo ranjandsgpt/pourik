@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Pourik",
   description:
-    "Get a free marketplace audit, ask about consulting, or get notified when Pourik-owned brands launch.",
+    "Contact Pourik about marketplace consulting, joining our expert network, or updates on Pourik-owned brands.",
 };
 
 export default function ContactPage() {
@@ -17,9 +17,9 @@ export default function ContactPage() {
         Let&apos;s talk marketplace growth.
       </h1>
       <p className="mt-6 text-lg text-muted">
-        Whether you want a free audit of your Amazon or Walmart account, or
-        just want to be notified when our first branded product line
-        launches — tell us a bit about you.
+        Ask about consulting, join our expert network, or get notified when
+        our first product line launches. For a free audit, use the{" "}
+        <a href="/audit" className="font-medium text-brand">audit request form</a>.
       </p>
 
       <div className="mt-12">
