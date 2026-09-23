@@ -1,27 +1,28 @@
 // Central site facts. Update these in one place.
-// LEGAL: replace legalName / address with the registered entity name and
-// full registered address before relying on the legal pages.
 export const site = {
   name: "Pourik",
-  legalName: "Pourik",
-  address: "Bengaluru, Karnataka, India",
+  legalName: "POURIK",
+  address: "Bangalore, India",
+  locations: ["Bangalore, India", "London, UK"],
+  upcomingLocations: ["USA"],
   email: "hello@pourik.com",
   grievanceEmail: "hello@pourik.com",
-  url: "https://pourik.com",
+  url: "https://www.pourik.com",
   lastUpdated: "23 September 2026",
-  // Add profile URLs here to show social links in the footer.
-  social: [] as { label: string; href: string }[],
+  // Form submissions are delivered by FormSubmit (formsubmit.co) to this
+  // endpoint. After activation, FormSubmit issues a random alias you can
+  // swap in here to keep the email address out of the page source.
+  formEndpoint: "https://formsubmit.co/ajax/hello@pourik.com",
+  social: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/pourik" },
+  ] as { label: string; href: string }[],
 };
 
-// Marketplaces Pourik offers services on. Only list ones actually served.
-export const marketplaces = [
-  "Amazon",
-  "Walmart",
-  "TikTok Shop",
-  "Shopee",
-  "Lazada",
-  "Tokopedia",
-];
+// Marketplaces Pourik offers services on today. Only list ones actually served.
+export const marketplaces = ["Amazon", "Walmart", "TikTok Shop"];
+
+// Marketplaces planned next. Always shown as "coming soon".
+export const upcomingMarketplaces = ["Shopee", "Lazada", "Tokopedia"];
 
 // Every figure here must stay true. They describe the individual career
 // experience of people in the Pourik network, not company results.
@@ -36,7 +37,7 @@ export const stats = [
   },
   {
     value: `${marketplaces.length}`,
-    label: "marketplaces we cover, across the US and Southeast Asia",
+    label: "marketplaces we work on today, with Southeast Asia coming next",
   },
 ];
 
@@ -46,7 +47,7 @@ export const statsFootnote =
 export const faqs = [
   {
     q: "Which marketplaces do you work on?",
-    a: `We currently work on ${marketplaces.slice(0, -1).join(", ")} and ${marketplaces.at(-1)}. If you sell somewhere else, ask us. We will tell you honestly whether it is a fit.`,
+    a: `Today we work on ${marketplaces.slice(0, -1).join(", ")} and ${marketplaces.at(-1)}. ${upcomingMarketplaces.join(", ")} and other Southeast Asian marketplaces are coming soon. If you sell somewhere else, ask us. We will tell you honestly whether it is a fit.`,
   },
   {
     q: "Who will actually work on my account?",
@@ -71,6 +72,10 @@ export const faqs = [
   {
     q: "Do you work with small brands?",
     a: "Yes. We work with brands getting ready to launch as well as established sellers. The scope and pricing depend on your stage and what you need.",
+  },
+  {
+    q: "Where are you based?",
+    a: `We work from ${site.locations.join(" and ")}, with the USA coming soon. Our experts work remotely across time zones.`,
   },
   {
     q: "Are you affiliated with Amazon, Walmart or TikTok?",
