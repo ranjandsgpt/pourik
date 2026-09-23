@@ -5,7 +5,7 @@ import { useState } from "react";
 import Logomark from "./Logomark";
 
 const nav = [
-  { href: "/services", label: "Consulting" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/people", label: "Our People" },
   { href: "/brands", label: "Our Brands" },
   { href: "/about", label: "About" },

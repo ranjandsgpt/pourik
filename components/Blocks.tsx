@@ -164,14 +164,16 @@ export function CtaBand({
   label?: string;
 }) {
   return (
-    <div className="rounded-3xl bg-foreground px-8 py-16 text-center text-background">
-      <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
-        {title}
-      </h2>
-      <p className="mx-auto mt-4 max-w-xl text-background/80">{copy}</p>
+    <div className="flex flex-col gap-6 border-t border-line pt-12 md:flex-row md:items-center md:justify-between">
+      <div className="max-w-2xl">
+        <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+          {title}
+        </h2>
+        <p className="mt-3 text-muted">{copy}</p>
+      </div>
       <Link
         href={href}
-        className="mt-8 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
+        className="inline-block shrink-0 self-start rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark md:self-center"
       >
         {label}
       </Link>

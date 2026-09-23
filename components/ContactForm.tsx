@@ -6,7 +6,7 @@ import { submitForm, type SubmitState } from "@/lib/submit";
 import { FormError, FormSent, Honeypot } from "./FormStatus";
 
 const reasons = [
-  "Consulting inquiry",
+  "Solutions inquiry",
   "Free marketplace audit",
   "Notify me about Pourik brands",
   "Joining the Pourik expert network",

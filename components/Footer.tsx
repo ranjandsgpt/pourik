@@ -4,12 +4,12 @@ import { site } from "@/lib/site";
 
 const columns = [
   {
-    title: "Consulting",
+    title: "Solutions",
     links: [
-      ["/services#advertising", "Retail Media & Ads"],
-      ["/services#catalog", "Catalog & Listings"],
-      ["/services#operations", "Inventory & Pricing"],
-      ["/services#expansion", "Marketplace Expansion"],
+      ["/solutions#advertising", "Retail Media & Ads"],
+      ["/solutions#catalog", "Catalog & Listings"],
+      ["/solutions#operations", "Inventory & Pricing"],
+      ["/solutions#expansion", "Marketplace Expansion"],
       ["/audit", "Free Audit"],
     ],
   },
