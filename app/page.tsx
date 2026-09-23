@@ -11,29 +11,12 @@ import {
   UpcomingCard,
 } from "@/components/Blocks";
 import NewsletterForm from "@/components/NewsletterForm";
+import { SolutionRow } from "@/components/Solutions";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const services = [
-  {
-    title: "Retail Media & Advertising",
-    copy: "Sponsored ads, DSP and marketplace ad programmes run around contribution margin, so spend goes where it earns.",
-  },
-  {
-    title: "Catalog & Listing Optimisation",
-    copy: "Search-led titles, rich content, images and video that help shoppers find you and choose you.",
-  },
-  {
-    title: "Inventory & Pricing Strategy",
-    copy: "Forecasting, reorder planning and pricing logic that protect availability, margin and cash flow together.",
-  },
-  {
-    title: "Marketplace Expansion",
-    copy: "Launch plans for new marketplaces, regions and categories, built step by step.",
-  },
-];
 
 export default function Home() {
   return (
@@ -92,28 +75,20 @@ export default function Home() {
       <StatsStrip />
       <MarketplaceStrip />
 
-      {/* Services */}
+      {/* Solutions */}
       <section className="container-px mx-auto max-w-6xl py-20">
-        <div className="max-w-2xl">
-          <Eyebrow>Consulting</Eyebrow>
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Solutions</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
             Everything a marketplace brand needs to grow, with less guesswork.
           </h2>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {services.map((s) => (
-            <div
-              key={s.title}
-              className="rounded-2xl border border-line p-6 transition-colors hover:border-brand"
-            >
-              <h3 className="font-display text-xl font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted">{s.copy}</p>
-            </div>
-          ))}
+        <div className="mt-14">
+          <SolutionRow />
         </div>
-        <div className="mt-10">
-          <Link href="/services" className="text-sm font-semibold text-brand hover:text-brand-dark">
-            See the full consulting offer →
+        <div className="mt-12 text-center">
+          <Link href="/solutions" className="text-sm font-semibold text-brand hover:text-brand-dark">
+            Explore our solutions →
           </Link>
         </div>
       </section>
