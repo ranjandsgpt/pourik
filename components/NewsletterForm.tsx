@@ -2,37 +2,38 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { site } from "@/lib/site";
+import { submitForm, type SubmitState } from "@/lib/submit";
+import { FormError, Honeypot } from "./FormStatus";
 
 export default function NewsletterForm() {
-  const [done, setDone] = useState(false);
+  const [state, setState] = useState<SubmitState>("idle");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const email = String(new FormData(e.currentTarget).get("email") ?? "");
-    const subject = encodeURIComponent("Subscribe to Pourik Notes");
-    const body = encodeURIComponent(
-      `Please add ${email} to Pourik Notes. I consent to receive occasional emails from Pourik and understand I can unsubscribe at any time.`
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setDone(true);
+    const f = new FormData(e.currentTarget);
+    if (String(f.get("_honey") ?? "")) return;
+    setState("sending");
+    const ok = await submitForm("Subscribe to Pourik Notes", {
+      email: String(f.get("email") ?? "").trim(),
+      Consent: "Agreed to receive occasional emails from Pourik; can unsubscribe at any time.",
+    });
+    setState(ok ? "sent" : "error");
   }
 
-  if (done) {
+  if (state === "sent") {
     return (
-      <p className="rounded-2xl border border-line bg-background p-6 text-sm text-muted">
-        Your email app should now be open with a subscribe request. Send it and
-        you&apos;re in.
+      <p role="status" className="rounded-2xl border border-line bg-background p-6 text-sm text-muted">
+        Thanks, you&apos;re subscribed. You can unsubscribe at any time by
+        replying to any of our emails.
       </p>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-3">
+      <Honeypot />
       <div className="flex flex-col gap-3 sm:flex-row">
-        <label htmlFor="nl-email" className="sr-only">
-          Email
-        </label>
+        <label htmlFor="nl-email" className="sr-only">Email</label>
         <input
           id="nl-email"
           name="email"
@@ -43,9 +44,10 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
+          disabled={state === "sending"}
+          className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark disabled:opacity-60"
         >
-          Subscribe
+          {state === "sending" ? "Sending…" : "Subscribe"}
         </button>
       </div>
       <label className="flex items-start gap-2 text-xs text-muted">
@@ -53,12 +55,10 @@ export default function NewsletterForm() {
         <span>
           I agree to receive occasional emails from Pourik. I can unsubscribe
           at any time. See our{" "}
-          <Link href="/privacy" className="text-brand underline">
-            Privacy Policy
-          </Link>
-          .
+          <Link href="/privacy" className="text-brand underline">Privacy Policy</Link>.
         </span>
       </label>
+      <FormError state={state} />
     </form>
   );
 }

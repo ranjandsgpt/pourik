@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { faqs, marketplaces, stats, statsFootnote } from "@/lib/site";
+import { faqs, marketplaces, stats, statsFootnote, upcomingMarketplaces } from "@/lib/site";
 
 export function Eyebrow({
   children,
@@ -85,6 +85,19 @@ export function MarketplaceStrip() {
             <li
               key={m}
               className="rounded-full border border-line px-4 py-2 font-display text-base font-semibold text-foreground/80"
+            >
+              {m}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-center text-xs font-semibold uppercase tracking-widest text-accent">
+          Coming soon
+        </p>
+        <ul className="mt-3 flex flex-wrap items-center justify-center gap-3">
+          {[...upcomingMarketplaces, "and more"].map((m) => (
+            <li
+              key={m}
+              className="rounded-full border border-dashed border-line px-4 py-1.5 text-sm text-muted"
             >
               {m}
             </li>

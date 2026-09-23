@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { submitForm, type SubmitState } from "@/lib/submit";
+import { FormError, FormSent, Honeypot } from "./FormStatus";
 
 const reasons = [
   "Consulting inquiry",
@@ -11,96 +13,63 @@ const reasons = [
   "Something else",
 ];
 
+const field =
+  "mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand";
+
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, setState] = useState<SubmitState>("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = String(form.get("name") ?? "");
-    const email = String(form.get("email") ?? "");
-    const reason = String(form.get("reason") ?? "");
-    const message = String(form.get("message") ?? "");
-
-    const subject = encodeURIComponent(`Pourik inquiry: ${reason}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\n${message}\n\nI agree that Pourik may use these details to respond to my message, as described in the Privacy Policy.`
-    );
-    window.location.href = `mailto:hello@pourik.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    const f = new FormData(e.currentTarget);
+    if (String(f.get("_honey") ?? "")) return;
+    const get = (k: string) => String(f.get(k) ?? "").trim();
+    setState("sending");
+    const ok = await submitForm(`Pourik inquiry: ${get("reason")}`, {
+      Name: get("name"),
+      email: get("email"),
+      Reason: get("reason"),
+      Message: get("message") || "-",
+      Consent: "Agreed to Pourik using these details to respond (Privacy Policy).",
+    });
+    setState(ok ? "sent" : "error");
   }
 
-  if (submitted) {
+  if (state === "sent") {
     return (
-      <div className="rounded-2xl border border-line bg-paper p-8 text-center">
-        <p className="font-display text-xl font-semibold">
-          Your email client should be open.
-        </p>
-        <p className="mt-2 text-sm text-muted">
-          If it didn&apos;t open, email us directly at{" "}
-          <a href="mailto:hello@pourik.com" className="text-brand">
-            hello@pourik.com
-          </a>
-          .
-        </p>
-      </div>
+      <FormSent
+        title="Thanks, your message is in."
+        copy="A real person will reply by email, usually within a few working days."
+      />
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <Honeypot />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-sm font-medium">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            required
-            className="mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand"
-          />
+          <label htmlFor="name" className="text-sm font-medium">Name *</label>
+          <input id="name" name="name" required autoComplete="name" className={field} />
         </div>
         <div>
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand"
-          />
+          <label htmlFor="email" className="text-sm font-medium">Email *</label>
+          <input id="email" name="email" type="email" required autoComplete="email" className={field} />
         </div>
       </div>
       <div>
         <label htmlFor="reason" className="text-sm font-medium">
           What are you reaching out about?
         </label>
-        <select
-          id="reason"
-          name="reason"
-          defaultValue={reasons[0]}
-          className="mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand"
-        >
+        <select id="reason" name="reason" defaultValue={reasons[0]} className={field}>
           {reasons.map((r) => (
-            <option key={r} value={r}>
-              {r}
-            </option>
+            <option key={r} value={r}>{r}</option>
           ))}
         </select>
       </div>
       <div>
-        <label htmlFor="message" className="text-sm font-medium">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          className="mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand"
-        />
+        <label htmlFor="message" className="text-sm font-medium">Message</label>
+        <textarea id="message" name="message" rows={5} className={field} />
       </div>
       <label className="flex items-start gap-2 text-sm text-muted">
         <input type="checkbox" required className="mt-1 accent-[var(--brand)]" />
@@ -110,11 +79,13 @@ export default function ContactForm() {
           <Link href="/privacy" className="text-brand underline">Privacy Policy</Link>.
         </span>
       </label>
+      <FormError state={state} />
       <button
         type="submit"
-        className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
+        disabled={state === "sending"}
+        className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark disabled:opacity-60"
       >
-        Send
+        {state === "sending" ? "Sending…" : "Send"}
       </button>
     </form>
   );

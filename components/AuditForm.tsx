@@ -2,59 +2,47 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { marketplaces, site } from "@/lib/site";
+import { marketplaces, upcomingMarketplaces } from "@/lib/site";
+import { submitForm, type SubmitState } from "@/lib/submit";
+import { FormError, FormSent, Honeypot } from "./FormStatus";
 
 const field =
   "mt-1.5 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm outline-none focus:border-brand";
 
 export default function AuditForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, setState] = useState<SubmitState>("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    if (String(f.get("_honey") ?? "")) return;
     const get = (k: string) => String(f.get(k) ?? "").trim();
-    const selected = f.getAll("marketplaces").map(String).join(", ") || "Not specified";
-
-    const subject = encodeURIComponent(`Free audit request: ${get("company")}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${get("name")}`,
-        `Brand / company: ${get("company")}`,
-        `Email: ${get("email")}`,
-        `Phone: ${get("phone") || "Not provided"}`,
-        `Marketplaces: ${selected}`,
-        `Storefront or listing URL: ${get("storefront")}`,
-        "",
-        get("message"),
-        "",
-        "I agree that Pourik may use these details to prepare my audit and contact me about it, as described in the Privacy Policy.",
-      ].join("\n")
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setState("sending");
+    const ok = await submitForm(`Free audit request: ${get("company")}`, {
+      Name: get("name"),
+      "Brand or company": get("company"),
+      email: get("email"),
+      Phone: get("phone") || "Not provided",
+      Marketplaces: f.getAll("marketplaces").map(String).join(", ") || "Not specified",
+      "Storefront or listing URL": get("storefront"),
+      Message: get("message") || "-",
+      Consent: "Agreed to Pourik using these details to prepare the audit and contact them about it (Privacy Policy).",
+    });
+    setState(ok ? "sent" : "error");
   }
 
-  if (submitted) {
+  if (state === "sent") {
     return (
-      <div className="rounded-2xl border border-line bg-paper p-8 text-center">
-        <p className="font-display text-xl font-semibold">
-          Your email app should now be open.
-        </p>
-        <p className="mt-2 text-sm text-muted">
-          Send the pre-filled email to complete your request. If nothing
-          opened, write to us at{" "}
-          <a href={`mailto:${site.email}`} className="text-brand">
-            {site.email}
-          </a>
-          .
-        </p>
-      </div>
+      <FormSent
+        title="Thanks, your audit request is in."
+        copy="We'll review it and reply by email, usually within a few working days."
+      />
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <Honeypot />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium">Name *</label>
@@ -77,7 +65,7 @@ export default function AuditForm() {
       <fieldset>
         <legend className="text-sm font-medium">Where do you sell?</legend>
         <div className="mt-2 flex flex-wrap gap-2">
-          {[...marketplaces, "Other"].map((m) => (
+          {[...marketplaces, ...upcomingMarketplaces, "Other"].map((m) => (
             <label
               key={m}
               className="flex cursor-pointer items-center gap-2 rounded-full border border-line px-3 py-1.5 text-sm has-[:checked]:border-brand has-[:checked]:text-brand"
@@ -93,14 +81,7 @@ export default function AuditForm() {
         <label htmlFor="storefront" className="text-sm font-medium">
           Storefront or a key listing URL *
         </label>
-        <input
-          id="storefront"
-          name="storefront"
-          type="url"
-          required
-          placeholder="https://"
-          className={field}
-        />
+        <input id="storefront" name="storefront" type="url" required placeholder="https://" className={field} />
       </div>
 
       <div>
@@ -124,16 +105,15 @@ export default function AuditForm() {
         </span>
       </label>
 
+      <FormError state={state} />
+
       <button
         type="submit"
-        className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
+        disabled={state === "sending"}
+        className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark disabled:opacity-60"
       >
-        Request my free audit
+        {state === "sending" ? "Sending…" : "Request my free audit"}
       </button>
-      <p className="text-xs text-muted">
-        Submitting opens your email app with a pre-filled message to{" "}
-        {site.email}. Nothing is stored on this website.
-      </p>
     </form>
   );
 }

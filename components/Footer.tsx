@@ -54,6 +54,9 @@ export default function Footer() {
             <a href={`mailto:${site.email}`} className="mt-4 inline-block text-sm font-medium hover:text-brand">
               {site.email}
             </a>
+            <p className="mt-4 text-sm text-muted">
+              {site.locations.join(" · ")} · {site.upcomingLocations.join(", ")} (coming soon)
+            </p>
             {site.social.length > 0 && (
               <ul className="mt-3 flex gap-4 text-sm text-muted">
                 {site.social.map((s) => (
