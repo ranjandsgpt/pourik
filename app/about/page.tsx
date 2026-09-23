@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand, Eyebrow } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About — Pourik",
   description:
     "What Pourik means: Pūr, Sanskrit for to fill completely, and Ik, the first unit of value. Together, the overflow of wealth. A marketplace growth partner built on experienced people and AI-driven insights.",
@@ -26,14 +27,14 @@ const pillars = [
   {
     letter: "+",
     title: "Beyond",
-    copy: "From the US to Southeast Asia, and new marketplaces as they matter to our clients.",
+    copy: "Bangalore and London today, the USA next. Southeast Asian marketplaces coming soon.",
   },
 ];
 
 const principles = [
   {
     title: "Pour where it grows",
-    copy: "Every rupee and dollar of spend should have a reason. We look for the places it will work hardest, and cut the places it leaks.",
+    copy: "Every rupee, pound and dollar of spend should have a reason. We look for the places it will work hardest, and cut the places it leaks.",
   },
   {
     title: "Margin over vanity metrics",
@@ -113,7 +114,7 @@ export default function AboutPage() {
 
       <p className="mt-10 max-w-3xl text-lg text-muted">
         That is what we want growth to look like for the brands we work with:
-        every rupee and dollar poured into the right place, building on what
+        every rupee, pound and dollar poured into the right place, building on what
         came before. Pourik is a marketplace growth partner that pairs senior
         human expertise with AI-driven tools and insights, and we are building
         our own brands on the same playbook.
