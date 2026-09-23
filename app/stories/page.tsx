@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand, Eyebrow, UpcomingCard } from "@/components/Blocks";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/stories" },
   title: "Success Stories — Pourik",
   description:
     "Case studies and testimonials from Pourik's experts and the brands they work with. Coming soon.",
