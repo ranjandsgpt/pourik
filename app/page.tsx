@@ -60,8 +60,8 @@ export default function Home() {
                 Pour
               </div>
               <p className="mt-2 text-sm text-muted">
-                From the Sanskrit root <em>pūr</em>, to fill. We help you fill
-                the right places with the right spend.
+                From the Sanskrit <em>pūr</em> (पूर्): to fill completely, to
+                overflow. Abundance, poured where it counts.
               </p>
             </div>
             <div className="rounded-2xl border border-line bg-paper p-6">
@@ -69,13 +69,13 @@ export default function Home() {
                 Ik
               </div>
               <p className="mt-2 text-sm text-muted">
-                <em>Ikk</em>, one. One team, one playbook, one business at a
-                time.
+                <em>Ik</em> (ਇੱਕ), one: the first unit of value. In Mayan,{" "}
+                <em>Ik&apos;</em> is breath, the flow of life.
               </p>
             </div>
             <div className="col-span-2 rounded-2xl border border-dashed border-line p-6 text-sm text-muted">
-              Pourik: experienced people and smart tools, pouring growth into
-              businesses, together as one.{" "}
+              Pourik: the overflow of wealth. Take one unit of value and fill
+              it until it overflows. That is how we think about growth.{" "}
               <Link href="/about" className="font-semibold text-brand hover:text-brand-dark">
                 Our story →
               </Link>
