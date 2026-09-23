@@ -4,29 +4,31 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Consulting Services — Pourik",
   description:
-    "Marketplace growth consulting: advertising, catalog optimization, inventory and pricing strategy, and marketplace expansion for Amazon, Walmart, and beyond.",
+    "Marketplace growth consulting for Amazon, Walmart, TikTok Shop and Southeast Asia marketplaces: retail media, catalog optimisation, inventory and pricing, and expansion.",
 };
 
 const groups = [
   {
     id: "advertising",
     title: "Retail Media & Advertising",
-    copy: "We manage and optimize paid media across the marketplaces that matter — built around contribution margin, not vanity ROAS.",
+    copy: "We plan, run and optimise paid media across the marketplaces that matter, built around contribution margin rather than vanity ROAS.",
     items: [
       "Amazon Sponsored Products, Brands & Display",
       "Amazon DSP",
       "Walmart Connect",
-      "Bid strategy & budget pacing tied to margin, not just ACOS",
-      "Weekly performance reporting with clear next actions",
+      "TikTok Shop ads",
+      "Marketplace ads on Shopee, Lazada and Tokopedia",
+      "Bid strategy and budget pacing tied to margin, not just ACOS",
+      "Regular performance reporting with clear next actions",
     ],
   },
   {
     id: "catalog",
-    title: "Catalog & Listing Optimization",
+    title: "Catalog & Listing Optimisation",
     copy: "Your listings are your storefront. We rebuild them to convert, and to rank.",
     items: [
-      "Keyword research & SEO-driven titles/bullets",
-      "A+ Content and Brand Store design",
+      "AI-assisted keyword research and search-led titles and bullets",
+      "Rich content (such as A+ Content) and brand store design",
       "Image and video strategy for conversion rate",
       "Review and ratings strategy within platform rules",
       "Variation and catalog structure cleanup",
@@ -37,20 +39,20 @@ const groups = [
     title: "Inventory & Pricing Strategy",
     copy: "Growth stalls fast when you're out of stock or priced wrong. We keep both in check.",
     items: [
-      "Demand forecasting & reorder planning",
-      "FBA/FBM and multi-warehouse strategy",
-      "Repricing logic that protects Buy Box and margin",
-      "Promotions, coupons, and Lightning Deal planning",
+      "Demand forecasting and reorder planning",
+      "Fulfilment model and multi-warehouse strategy",
+      "Pricing logic that protects Buy Box and margin",
+      "Promotions, coupons and deal planning",
     ],
   },
   {
     id: "expansion",
     title: "Marketplace Expansion",
-    copy: "Ready for a new marketplace or category? We've already tested the playbook on our own brands.",
+    copy: "Ready for a new marketplace, region or category? We plan the launch step by step, using what our experts have learned across many brands.",
     items: [
-      "New marketplace launch (Walmart, Target Plus, and more)",
-      "International marketplace entry",
-      "New category and ASIN launch strategy",
+      "New marketplace launch in the US and Southeast Asia",
+      "Cross-border entry and localisation",
+      "New category and product launch strategy",
       "Competitive and category analysis",
     ],
   },
@@ -66,9 +68,9 @@ export default function ServicesPage() {
         A full-funnel marketplace growth team, without the full-time hires.
       </h1>
       <p className="mt-6 max-w-2xl text-lg text-muted">
-        Every recommendation we give a client, we&apos;ve already tried on a
-        Pourik-owned brand. That&apos;s the difference between an agency that
-        theorizes and one that operates.
+        Senior experts from across the marketplace and advertising industry,
+        supported by AI-driven tools and insights. You get experienced
+        judgement without building a large in-house team.
       </p>
 
       <div className="mt-16 space-y-16">
@@ -102,10 +104,10 @@ export default function ServicesPage() {
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-background/80">
           Tell us about your marketplace accounts and we&apos;ll come back with a
-          free audit and a prioritized list of what to fix first.
+          free audit and a prioritised list of what to fix first.
         </p>
         <Link
-          href="/contact"
+          href="/audit"
           className="mt-6 inline-block rounded-full bg-brand px-8 py-3 text-sm font-semibold text-ink transition-colors hover:bg-brand-dark"
         >
           Get a free audit
