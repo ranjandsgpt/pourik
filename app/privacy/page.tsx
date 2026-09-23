@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy — Pourik",
   description: "How Pourik collects, uses and protects your personal data.",
 };
@@ -13,11 +14,12 @@ export default function PrivacyPage() {
     <LegalPage title="Privacy Policy">
       <p>
         This Privacy Policy explains how {site.legalName} (&quot;Pourik&quot;,
-        &quot;we&quot;, &quot;us&quot;), based in {site.address}, handles
-        personal data collected through {site.url} (the &quot;Website&quot;).
-        We follow the Digital Personal Data Protection Act, 2023 and the rules
-        made under it, the Information Technology Act, 2000, and other
-        applicable Indian law.
+        &quot;we&quot;, &quot;us&quot;), with offices in{" "}
+        {site.locations.join(" and ")}, handles personal data collected through{" "}
+        {site.url} (the &quot;Website&quot;). We follow India&apos;s Digital
+        Personal Data Protection Act, 2023 and the rules made under it, the
+        Information Technology Act, 2000, and, for people in the United
+        Kingdom, the UK GDPR and the Data Protection Act 2018.
       </p>
 
       <h2>1. What we collect</h2>
@@ -35,10 +37,10 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        Our forms do not store anything on the Website. Submitting a form opens
-        your own email app with a pre-filled message, and we receive your
-        details only when you send that email. We do not currently use
-        advertising or analytics cookies. We do not ask for, and you should not
+        When you submit a form, your details are sent to our inbox through our
+        form-delivery provider, FormSubmit. They are not stored in a database
+        on the Website. We do not currently use advertising or analytics
+        cookies. We do not ask for, and you should not
         send us, passwords, bank details or other sensitive data.
       </p>
 
@@ -52,18 +54,22 @@ export default function PrivacyPage() {
       <p>
         We process your personal data on the basis of the consent you give when
         you contact us, or for legitimate uses permitted by law, such as
-        responding to a request you have made. We use your data only for the
+        responding to a request you have made. For people in the UK, our
+        lawful bases are consent and, where we are taking steps at your
+        request before entering into a contract, performance of a contract. We use your data only for the
         purpose for which you gave it.
       </p>
 
       <h2>3. Who we share it with</h2>
       <p>
         We do not sell your personal data. We share it only with service
-        providers who help us run the business, such as our email and website
-        hosting providers, and only as needed for the purposes above. We may
+        providers who help us run the business, such as our form-delivery
+        provider (FormSubmit), email provider and website hosting provider, and
+        only as needed for the purposes above. We may
         also disclose data where required by law or by a lawful order of a
         court or government authority. Some providers may store data on
-        servers outside India, which we do only where permitted by Indian law.
+        servers outside India or the UK. We transfer data only where permitted
+        by applicable law and, for UK data, with appropriate safeguards.
       </p>
 
       <h2>4. How long we keep it</h2>
@@ -93,6 +99,10 @@ export default function PrivacyPage() {
         <li>have your grievances addressed.</li>
       </ul>
       <p>
+        If you are in the UK, you also have the right to object to or restrict
+        certain processing and to receive your data in a portable format.
+      </p>
+      <p>
         To use any of these rights, or to unsubscribe from Pourik Notes, email{" "}
         <a href={`mailto:${site.email}`}>{site.email}</a>. Withdrawing consent
         does not affect processing that took place before you withdrew it.
@@ -114,7 +124,8 @@ export default function PrivacyPage() {
         with the subject line &quot;Grievance&quot;. We will acknowledge your
         complaint and resolve it within the time limits set by applicable law.
         If you are not satisfied with our response, you may complain to the
-        Data Protection Board of India.
+        Data Protection Board of India. If you are in the UK, you can also
+        complain to the Information Commissioner&apos;s Office (ico.org.uk).
       </p>
 
       <h2>9. Changes to this policy</h2>
