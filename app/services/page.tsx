@@ -2,9 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services" },
   title: "Consulting Services — Pourik",
   description:
-    "Marketplace growth consulting for Amazon, Walmart, TikTok Shop and Southeast Asia marketplaces: retail media, catalog optimisation, inventory and pricing, and expansion.",
+    "Marketplace growth consulting for Amazon, Walmart and TikTok Shop: retail media, catalog optimisation, inventory and pricing, and expansion. Southeast Asia marketplaces coming soon.",
 };
 
 const groups = [
@@ -17,7 +18,7 @@ const groups = [
       "Amazon DSP",
       "Walmart Connect",
       "TikTok Shop ads",
-      "Marketplace ads on Shopee, Lazada and Tokopedia",
+      "Shopee, Lazada and Tokopedia ads (coming soon)",
       "Bid strategy and budget pacing tied to margin, not just ACOS",
       "Regular performance reporting with clear next actions",
     ],
@@ -50,7 +51,7 @@ const groups = [
     title: "Marketplace Expansion",
     copy: "Ready for a new marketplace, region or category? We plan the launch step by step, using what our experts have learned across many brands.",
     items: [
-      "New marketplace launch in the US and Southeast Asia",
+      "New marketplace launch planning",
       "Cross-border entry and localisation",
       "New category and product launch strategy",
       "Competitive and category analysis",
